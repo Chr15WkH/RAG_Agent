@@ -2,7 +2,7 @@ from langchain_core.prompts import FewShotPromptTemplate, PromptTemplate
 from langchain_community.llms.tongyi import Tongyi
 
 """
-参数：
+FewShotPromptTemplate参数：
     • examples: 示例数据，list，内套字典
     • example_prompt: 示例数据的提示词模板
     • prefix: 组装提示词，示例数据前内容
@@ -31,6 +31,7 @@ few_shot_prompt = FewShotPromptTemplate(
 prompt_text = few_shot_prompt.invoke(input={"input_word": "左"}).to_string()
 print(prompt_text)
 
+# 调用模型
 llms = Tongyi(model="qwen-max")
 response = llms.invoke(input=prompt_text)
 print(response)
