@@ -17,6 +17,6 @@ prompt_template = PromptTemplate.from_template(
     )
 chain = prompt_template | chatmodel | parser | chatmodel | parser
 # : AIMessage用于类型提示(Type Hinting)，告诉开发者和IDE，chain.invoke的输出是一个AIMessage对象,实际不影响代码运行，但是需导入AIMessage类。
-response: AIMessage = chain.invoke({"lastname": "林", "gender": "女儿", "description": "文雅"})
+response: AIMessage = chain.invoke({"lastname": "林", "gender": "女儿", "description": "文雅"}) # 链的最后用了parser之后，response的类型是字符串类型了，不是AIMessage了。
 print(response)
 print(type(response))
