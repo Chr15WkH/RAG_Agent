@@ -3,13 +3,13 @@ from langchain_community.llms.tongyi import Tongyi
 
 """
 FewShotPromptTemplate参数：
-    • examples: 示例数据，list，内套字典
     • example_prompt: 示例数据的提示词模板
+    • examples: 示例数据，list，内套字典
     • prefix: 组装提示词，示例数据前内容
     • suffix: 组装提示词，示例数据后内容
     • input_variables: 列表，注入的变量列表
 """
-# 示例数据的提示词模版
+# 示例数据的提示词模版,只能接受一条信息。
 example_template = PromptTemplate.from_template("单词：{word}, 反义词：{antonym}")
 
 # 示例数据

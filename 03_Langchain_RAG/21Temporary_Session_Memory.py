@@ -14,6 +14,7 @@ chatmodel = ChatTongyi(model="qwen3-max")
 # prompt_template = PromptTemplate.from_template(
 #     "你需要根据对话历史回应用户的问题。历史对话如下：{chat_history}，请根据历史对话内容回答用户的问题：{question}给出回应"
 # )
+
 chat_template = ChatPromptTemplate.from_messages(
     [
         ("system", "你需要根据对话历史回应用户的问题。对话历史如下："),

@@ -1,7 +1,7 @@
 from langchain_core.prompts import PromptTemplate
 from langchain_community.llms.tongyi import Tongyi
-# 基于PromptTemplate，实现zero-shot
-# 基于FewShotPromptTemplate，实现few-shot
+# 基于PromptTemplate，实现zero-shot，通用提示词模版，支持动态注入信息。
+# 基于FewShotPromptTemplate，实现few-shot，支持基于模版注入任意数量的示例信息。
 prompt_template = PromptTemplate.from_template(
     "我的邻居姓{lastname}，刚生了{gender}，希望名字能够{description}一些，帮忙起名字，请简略回答。"
 )

@@ -19,3 +19,10 @@ print(response_format, type(response_format))
 # 3.传参：.invoke({"k": v, "k": v, ...}) 4.解析：占位符{变量}和MessagesPlaceholder结构化占位符。
 response_invoke = example_template.invoke(input={"lastname":"qinglan", "hobby": "看书"})
 print(response_invoke, type(response_invoke))
+
+'''
+invoke方法相当于给定输入，执行当前组件(component)，得到输出结果，针对不同组件有不同作用，
+例如对于PromptTemplate组件，invoke方法会解析占位符生成提示词；对于LLM组件，invoke方法会调用模型得到结果。
+invoke方法是Runnable接口的标准方法，所有组件都必须实现这个方法，才能在链式调用中被正确执行。
+invoke方法的输入参数是一个字典，包含了需要注入的信息，键是占位符的变量名，值是要注入的具体信息。
+'''

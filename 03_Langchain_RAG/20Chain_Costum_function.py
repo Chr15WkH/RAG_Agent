@@ -37,7 +37,8 @@ chain = first_prompt | chatmodel | my_func | second_prompt | chatmodel | str_par
 跳过 RunnableLambda 类，直接让函数加入链也是可以的。如下所示：
 (chain = first_prompt | model | (lambda ai_msg: {"name": ai_msg.content}) | second_prompt | model | str_parser)
 因为 Runnable 接口类在实现 __or__ (也就是 | 操作符)的时候，支持 Callable 接口的实例。
-函数就是 Callable 接口的实例，如上代码示例，| 符号（底层是调用 __or__ ）组链，是支持函数加入的。其本质是将函数自动转换为 RunnableLambda
+函数就是 Callable 接口的实例，如上代码示例，| 符号（底层是调用 __or__ ）组链，是支持函数加入的。
+其本质是LECL(LangChain Expression Language)将函数自动转换为 RunnableLambda
 '''
 response : str = chain.invoke({"lastname": "林", "gender": "女儿", "description": "大气，有文化且不大众"})
 print(response)

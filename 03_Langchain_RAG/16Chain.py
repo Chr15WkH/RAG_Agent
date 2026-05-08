@@ -26,12 +26,13 @@ history_data = [
 # 调用模型进行回复
 chat = ChatTongyi(model="qwen3-max")
 
+# 形成的链是RunnableSerializable对象（Runnable接口子类）
 chain = chat_template | chat
 print(type(chain))
 '''
 response = chain.invoke(input={"history": history_data})
 print(response.content)
 '''
-
+# 可以通过链调用invoke或stream方法触发整个链条的执行。
 for chunk in chain.stream({"history": history_data}):
     print(chunk.content, end = " ", flush = True)

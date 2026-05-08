@@ -27,10 +27,12 @@ history_data = [
 prompt_text = chat_template.invoke(input={"history": history_data}).to_string()
 # print(prompt_text)
 
+# 调用模型进行回复
 chat = ChatTongyi(model="qwen3-max")
 '''
 for chunk in chat.stream(input=prompt_text):
     print(chunk.content, end = " ", flush = True)
 '''
 response = chat.invoke(input=prompt_text)
+# 模型的回复不只是字符串，而是一个结构化的消息对象，包含content属性（消息内容）和role属性（消息角色）。因此需要访问content属性来获取模型回复的文本内容。
 print(response.content)
