@@ -21,3 +21,6 @@ venv/
 
 # Chat History Storage
 chat_history
+
+# data files
+data
