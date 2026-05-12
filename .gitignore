@@ -24,3 +24,6 @@ chat_history
 
 # data files
 data
+
+# ChromaDataBase
+chroma_langchain_db
