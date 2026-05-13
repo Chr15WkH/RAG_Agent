@@ -14,7 +14,6 @@ LangChain 为向量存储提供了统一接口：
 """
 
 from langchain_core.vectorstores import InMemoryVectorStore # 内置的向量存储
-from langchain_chroma import Chroma # chroma外部向量存储
 from langchain_community.embeddings import DashScopeEmbeddings # 导入嵌入模型
 from langchain_community.document_loaders import CSVLoader # 文档加载器
 
@@ -27,13 +26,6 @@ vector_store.add_documents(documents=[doc1, doc2],ids=["id1", "id2"])
 vector_store.delete(ids=["id1", "id2"])
 # 用similarity_search方法进行相似性搜索，指定查询文本和返回结果数量
 vector_store.similarity_search("我喜欢你", 2)
-
-# 外部chroma向量存储的使用
-vector_store = Chroma(
-    collection_name="my_collection", # 指定集合名称
-    embedding_function=DashScopeEmbeddings(), # 指定嵌入模型
-    persist_directory="./data/chroma_langchain_db" # 指定存储路径，用于存储向量数据库
-)
 """
 vector_store = InMemoryVectorStore(embedding=DashScopeEmbeddings())
 
